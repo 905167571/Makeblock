@@ -8,7 +8,7 @@ set2 = 0
 led = 0
 pl = 0
 
-@event.touchpad1_active
+@event.touchpad1_active   //线程1
 def on_1_active():
     global c
     haloboard.led.off_all()
@@ -48,7 +48,7 @@ def on_1_active():
             haloboard.stop_other_scripts()
             haloboard.led.off_all()
 
-@event.button_pressed
+@event.button_pressed  //线程2 
 def on_button_pressed():
     global c
     time.sleep(0.2)
@@ -58,7 +58,7 @@ def on_button_pressed():
         haloboard.led.off_single(12)
         time.sleep(0.5)
 
-@event.touchpad2_active
+@event.touchpad2_active  //线程3
 def on_2_active1():
     global c
     haloboard.led.off_all()
